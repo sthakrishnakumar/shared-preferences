@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preference/features/form/data/models/form_model.dart';
 import 'package:shared_preference/features/form/data/service/service.dart';
 
+// ignore: must_be_immutable
 class EditPage extends StatelessWidget {
   EditPage({Key? key, required this.formModel}) : super(key: key);
   FormModel formModel;
