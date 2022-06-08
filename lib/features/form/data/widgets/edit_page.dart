@@ -1,52 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preference/features/form/data/models/form_model.dart';
 import 'package:shared_preference/features/form/data/service/service.dart';
-import 'package:shared_preference/features/form/data/widgets/draft.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  late TextEditingController nameController;
-  late TextEditingController addressController;
-
-  @override
-  void initState() {
-    nameController = TextEditingController();
-    addressController = TextEditingController();
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    nameController.dispose();
-    addressController.dispose();
-    super.dispose();
-  }
+class EditPage extends StatelessWidget {
+  EditPage({Key? key, required this.formModel}) : super(key: key);
+  FormModel formModel;
 
   @override
   Widget build(BuildContext context) {
+    final nameController = TextEditingController(text: formModel.name);
+    final addressController = TextEditingController(text: formModel.address);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Local Storage'),
-        actions: [
-          IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              CupertinoPageRoute(
-                builder: (ctx) => const Draft(),
-              ),
-            ),
-            icon: const Icon(Icons.navigate_next),
-          )
-        ],
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
