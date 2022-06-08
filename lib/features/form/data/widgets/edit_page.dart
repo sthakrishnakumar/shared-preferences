@@ -11,7 +11,9 @@ class EditPage extends StatelessWidget {
     final nameController = TextEditingController(text: formModel.name);
     final addressController = TextEditingController(text: formModel.address);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Edit Page'),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
